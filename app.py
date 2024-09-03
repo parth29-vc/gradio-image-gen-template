@@ -48,8 +48,8 @@ def run_lora(prompt, cfg_scale, steps, randomize_seed, seed, width, height, lora
     yield image, seed
 
 # Example cached image and settings
-example_image_path = ""  # Replace with the actual path to the example image
-example_prompt = """"""
+example_image_path = "gradio-image-gen-template/samples/samples_1725343907682__000001000_1.jpg"  # Replace with the actual path to the example image
+example_prompt = """a digital art, an old GN walking in a jungle with his friend bhai mardana who plays  a simple stringed instrument, such as a rabab (a precursor to the sarangi)"""
 example_cfg_scale = 3.2
 example_steps = 32
 example_width = 1152
