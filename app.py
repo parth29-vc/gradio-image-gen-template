@@ -89,4 +89,4 @@ with gr.Blocks() as app:
     )
 
 app.queue()
-app.launch()
+app.launch(share=True, show_error=True)
