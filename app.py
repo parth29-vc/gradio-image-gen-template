@@ -8,7 +8,7 @@ import random
 base_model = "black-forest-labs/FLUX.1-dev"
 pipe = DiffusionPipeline.from_pretrained(base_model, torch_dtype=torch.bfloat16)
 
-lora_repo = "parth29vc/shm"
+lora_repo = "parth29vc/shm-v2"
 trigger_word = "GN"  # Leave trigger_word blank if not used.
 pipe.load_lora_weights(lora_repo)
 
