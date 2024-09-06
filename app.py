@@ -1,18 +1,18 @@
 import gradio as gr
 import torch
 from PIL import Image
-from diffusers import DiffusionPipeline
+from diffusers import DiffusionPipeline, FluxPipeline
 import random
 
 # Initialize the base model and specific LoRA
 base_model = "black-forest-labs/FLUX.1-dev"
-pipe = DiffusionPipeline.from_pretrained(base_model, torch_dtype=torch.bfloat16)
+pipe = FluxPipeline.from_pretrained(base_model, torch_dtype=torch.bfloat16)
 
 lora_repo = "parth29vc/shm-v2"
 trigger_word = "GN"  # Leave trigger_word blank if not used.
 pipe.load_lora_weights(lora_repo)
-
-pipe.to("cuda")
+pipe.fuse_lora(lora_scale=0.125)
+pipe.to("cuda", dtype=torch.bfloat16)
 
 MAX_SEED = 2**32-1
 
